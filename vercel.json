@@ -1,8 +1,6 @@
 {
-  "version": 2,
-  "cleanUrls": true,
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/$1" }
-  ]
+  "framework": null,
+  "buildCommand": "echo 'Static Site'",
+  "outputDirectory": ".",
+  "cleanUrls": true
 }
