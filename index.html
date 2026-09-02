@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elephant Beach Villa - Komari, Arugam Bay Region, Sri Lanka</title>
+  <meta name="description" content="A secluded 4-bedroom luxury family holiday villa situated on a pristine beach in Komari, Sri Lanka. Featuring plunge pool, ocean view balconies, and visiting wild elephants.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header Toolbar with Centered Logo & Split Side Menus -->
+  <header class="header">
+    <div class="container">
+      <div class="header-nav-grid">
+        <!-- Left Side Menu -->
+        <ul class="nav-side nav-left">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="about.html" class="nav-link">About The Space</a></li>
+          <li class="dropdown">
+            <a href="rooms.html" class="nav-link">Bedrooms ▾</a>
+            <div class="dropdown-menu">
+              <a href="rooms.html" class="dropdown-item">All 4 Bedrooms</a>
+              <a href="rooms.html#large-rooms" class="dropdown-item">2 Large-Bed Suites (1 King Bed x 2)</a>
+              <a href="rooms.html#twin-rooms" class="dropdown-item">2 Twin-Bed Rooms (2 Beds x 2)</a>
+            </div>
+          </li>
+        </ul>
+
+        <!-- Centered Logo -->
+        <a href="index.html" class="logo-centered">
+          <div class="logo-icon">EB</div>
+          <div class="logo-text">Elephant Beach <span>Villa</span></div>
+        </a>
+
+        <!-- Right Side Menu -->
+        <ul class="nav-side nav-right">
+          <li><a href="availability.html" class="nav-link">Resort Availability</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="availability.html" class="btn btn-outline-gold" style="padding: 8px 18px; font-size: 0.75rem;">Book Now</a></li>
+        </ul>
+
+        <button class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       SECTION 1: HERO BANNER SECTION (Black Tint Overlay)
+       ========================================================================== -->
+  <section class="hero" data-section="1">
+    <div class="hero-placeholder-bg"></div>
+    <div class="hero-pattern"></div>
+    <div class="container hero-content">
+      <div class="section-number-badge">Section 1</div>
+      <div class="hero-stars">★ ★ ★ ★ ★</div>
+      <span class="subtitle" style="color: var(--color-gold);">Komari, Eastern Province · Sri Lanka</span>
+      <h1 class="hero-title">A Pristine Beach & Wild Coast Sanctuary</h1>
+      <p class="hero-description">
+        Experience Sri Lanka's wild coast at its finest. Nestled between deserted sand dunes and a serene estuary, our secluded 4-bedroom villa offers private plunge pool relaxation, visiting wild elephants, and breathtaking sunrises.
+      </p>
+    </div>
+  </section>
+
+  <!-- Sleek Semi-Transparent Check Dates Overlay Bar -->
+  <div class="container hero-transparent-bar-wrapper">
+    <form id="heroCheckBarForm" class="transparent-check-bar">
+      <!-- Check-In -->
+      <div class="bar-field">
+        <label class="bar-label" for="heroCheckIn">Check-In</label>
+        <input type="date" id="heroCheckIn" class="bar-input" required>
+      </div>
+
+      <!-- Check-Out -->
+      <div class="bar-field">
+        <label class="bar-label" for="heroCheckOut">Check-Out</label>
+        <input type="date" id="heroCheckOut" class="bar-input" required>
+      </div>
+
+      <!-- Modern Stepper Guest Counter (+ / - Buttons, Max 8) -->
+      <div class="bar-field">
+        <label class="bar-label">Guests (Max 8)</label>
+        <div class="stepper-widget">
+          <button type="button" id="guestMinusBtn" class="stepper-btn">-</button>
+          <span id="guestValueDisplay" class="stepper-value">2 Guests</span>
+          <button type="button" id="guestPlusBtn" class="stepper-btn">+</button>
+        </div>
+      </div>
+
+      <!-- Multi-Room Popover Selector -->
+      <div class="bar-field">
+        <label class="bar-label">Select Rooms / Suites</label>
+        <button type="button" id="multiRoomToggleBtn" class="multi-room-dropdown-toggle">
+          <span id="multiRoomDisplayText">Entire Villa (4 Rooms · 8 Guests)</span>
+          <span style="font-size: 0.8rem; margin-left: 6px;">▾</span>
+        </button>
+
+        <div id="multiRoomPopover" class="multi-room-popover">
+          <div class="multi-room-popover-header">Choose Rooms to Check</div>
+          
+          <label class="room-opt-item">
+            <span>
+              <input type="checkbox" class="hero-room-checkbox" value="entire" checked>
+              <strong>Entire Villa (All 4 Rooms)</strong>
+            </span>
+            <span class="guest-max-badge">Max 8 Guests</span>
+          </label>
+
+          <label class="room-opt-item">
+            <span>
+              <input type="checkbox" class="hero-room-checkbox" value="room1" checked>
+              Room 1: Ocean View Twin
+            </span>
+            <span class="guest-max-badge">Max 2 Guests</span>
+          </label>
+
+          <label class="room-opt-item">
+            <span>
+              <input type="checkbox" class="hero-room-checkbox" value="room2" checked>
+              Room 2: Estuary View Twin
+            </span>
+            <span class="guest-max-badge">Max 2 Guests</span>
+          </label>
+
+          <label class="room-opt-item">
+            <span>
+              <input type="checkbox" class="hero-room-checkbox" value="room3" checked>
+              Room 3: Sunset Master Suite
+            </span>
+            <span class="guest-max-badge">Max 2 Guests</span>
+          </label>
+
+          <label class="room-opt-item">
+            <span>
+              <input type="checkbox" class="hero-room-checkbox" value="room4" checked>
+              Room 4: Oceanfront Suite
+            </span>
+            <span class="guest-max-badge">Max 2 Guests</span>
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="white-space: nowrap; border-radius: 30px;">Check Availability</button>
+    </form>
+  </div>
+
+  <!-- ==========================================================================
+       SECTION 2: 75% WARM IVORY CANVAS SECTION (#FFFAF5) - Unmatched Luxury
+       ========================================================================== -->
+  <section class="section section-ivory" data-section="2">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-number-badge">Section 2</div>
+        <span class="subtitle">Why Choose Elephant Beach</span>
+        <h2>Unmatched Natural Luxury</h2>
+        <p>Located in the quiet village of Komari, just 20 minutes from main Arugam Bay, offering a private paradise away from the crowd.</p>
+      </div>
+
+      <div class="grid-4">
+        <!-- Card 1 -->
+        <div class="feature-card-with-img">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Pristine Deserted Beach" class="feature-card-media">
+          <div class="feature-card-content">
+            <h4>Pristine Deserted Beach</h4>
+            <p>Steps away from wide, uncrowded sandy beaches with direct ocean access, perfect for sunrise walks.</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="feature-card-with-img">
+          <img src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=600&q=80" alt="Visiting Wild Elephants" class="feature-card-media">
+          <div class="feature-card-content">
+            <h4>Visiting Wild Elephants</h4>
+            <p>Situated in a rich natural corridor where gentle wild elephants frequently roam the nearby lagoon and dunes.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="feature-card-with-img">
+          <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=600&q=80" alt="Private Plunge Pool" class="feature-card-media">
+          <div class="feature-card-content">
+            <h4>Private Plunge Pool</h4>
+            <p>A warm, large private pool set in lush tropical gardens, ideal for cooling off after a day of ocean surfing.</p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="feature-card-with-img">
+          <img src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=600&q=80" alt="World Surf Points" class="feature-card-media">
+          <div class="feature-card-content">
+            <h4>15 Mins to World Surf Points</h4>
+            <p>Minutes away from world-famous surf breaks including Lighthouse Point, Whiskey Point, and Pottuvil Point.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 3: 25% DEEP EMERALD DARK SECTION (#2E5A44) - Estate & Living Spaces
+       ========================================================================== -->
+  <section class="section section-emerald" data-section="3">
+    <div class="container">
+      <div class="grid-2">
+        <div>
+          <div class="section-number-badge">Section 3</div>
+          <span class="subtitle" style="color: var(--color-gold) !important;">The Estate & Living Spaces</span>
+          <h2 class="text-white" style="color: #FFFFFF !important;">4 Private Ensuite Bedrooms & Double Verandahs</h2>
+          <p style="color: rgba(255,250,245,0.95) !important;">
+            Designed for family gatherings and friend retreats, the villa offers 4 spacious air-conditioned bedrooms (with hot water ensuite bathrooms and private balconies). Enjoy a cozy upstairs living/dining room and a spacious downstairs verandah with 2 outdoor al fresco dining areas.
+          </p>
+          <ul style="list-style: none; margin-bottom: 24px;">
+            <li style="margin-bottom: 8px; color: rgba(255,250,245,0.95);">✓ <strong>Fully Equipped Kitchen</strong> (Stove, oven/grill, microwave, fridge-freezer, rice cooker)</li>
+            <li style="margin-bottom: 8px; color: rgba(255,250,245,0.95);">✓ <strong>Upstairs Kitchenette</strong> for light drinks and morning coffee</li>
+            <li style="margin-bottom: 8px; color: rgba(255,250,245,0.95);">✓ <strong>2 Friendly Resident Dogs</strong> on site for a warm home feeling</li>
+            <li style="margin-bottom: 8px; color: rgba(255,250,245,0.95);">✓ <strong>Caretaker Saman on Site</strong> to assist with property care and local advice</li>
+          </ul>
+          <a href="about.html" class="btn btn-outline-gold">Read Full Villa Space Details</a>
+        </div>
+
+        <div>
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80" alt="Elephant Beach Villa Estate Exterior" class="media-card-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 4: PARALLAX SCROLLING BANNER SECTION (Black Tint Overlay)
+       ========================================================================== -->
+  <section class="section-banner-bg" data-section="4">
+    <div class="container">
+      <div class="section-number-badge">Section 4</div>
+      <span class="subtitle" style="color: var(--color-gold) !important;">Komari Coast Paradise</span>
+      <h2 style="color: #FFFFFF !important;">Where The Ocean Meets The Wild Estuary</h2>
+      <p style="color: rgba(255,250,245,0.95) !important;">Enjoy uncrowded beaches, private plunge pool dips, and gentle sea breezes far away from busy tourist hubs.</p>
+      <a href="availability.html" class="btn btn-primary">Check Availability & Book</a>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 5: CRYSTAL CLEAR PHOTO ROOM CARDS WITH FLOATING BADGES
+       ========================================================================== -->
+  <section class="section section-ivory" data-section="5">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-number-badge">Section 5</div>
+        <span class="subtitle">Accommodations</span>
+        <h2>Our 4 Bedroom Layout</h2>
+        <p>Swipe or scroll horizontally to explore all 4 private ensuite bedrooms.</p>
+      </div>
+
+      <!-- Horizontal Sliding Track with Crystal Clear Photography & Floating Pill Badges -->
+      <div class="rooms-slider-container">
+        
+        <!-- Room 1 -->
+        <div class="room-card-slide-overlay">
+          <div class="room-top-pill-badge">2 Beds Bedroom</div>
+          <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Room 1 Ocean View Twin" class="room-card-full-img">
+          <div class="room-card-text-overlay">
+            <h3 style="font-size: 1.35rem; color: #FFFFFF !important; font-family: var(--font-serif); margin-bottom: 2px; text-shadow: 0 2px 8px rgba(0,0,0,0.5);">Ocean View Twin Room</h3>
+            <p style="font-size: 0.84rem; color: rgba(255, 250, 245, 0.95) !important; margin-bottom: 12px; text-shadow: 0 1px 4px rgba(0,0,0,0.5);">2 Single Beds · Ocean View Balcony</p>
+            <a href="rooms.html#twin-rooms" class="btn btn-outline-gold" style="padding: 7px 14px; font-size: 0.75rem; align-self: flex-start; background: rgba(31,61,46,0.85); backdrop-filter: blur(4px);">View Details →</a>
+          </div>
+        </div>
+
+        <!-- Room 2 -->
+        <div class="room-card-slide-overlay">
+          <div class="room-top-pill-badge">2 Beds Bedroom</div>
+          <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80" alt="Room 2 Estuary View Twin" class="room-card-full-img">
+          <div class="room-card-text-overlay">
+            <h3 style="font-size: 1.35rem; color: #FFFFFF !important; font-family: var(--font-serif); margin-bottom: 2px; text-shadow: 0 2px 8px rgba(0,0,0,0.5);">Lagoon View Twin Room</h3>
+            <p style="font-size: 0.84rem; color: rgba(255, 250, 245, 0.95) !important; margin-bottom: 12px; text-shadow: 0 1px 4px rgba(0,0,0,0.5);">2 Single Beds · Estuary Balcony</p>
+            <a href="rooms.html#twin-rooms" class="btn btn-outline-gold" style="padding: 7px 14px; font-size: 0.75rem; align-self: flex-start; background: rgba(31,61,46,0.85); backdrop-filter: blur(4px);">View Details →</a>
+          </div>
+        </div>
+
+        <!-- Room 3 -->
+        <div class="room-card-slide-overlay">
+          <div class="room-top-pill-badge" style="color: var(--color-gold);">Large Size Bed Room</div>
+          <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=800&q=80" alt="Room 3 Sunset Master Suite" class="room-card-full-img">
+          <div class="room-card-text-overlay">
+            <h3 style="font-size: 1.35rem; color: #FFFFFF !important; font-family: var(--font-serif); margin-bottom: 2px; text-shadow: 0 2px 8px rgba(0,0,0,0.5);">Sunset Master Suite</h3>
+            <p style="font-size: 0.84rem; color: rgba(255, 250, 245, 0.95) !important; margin-bottom: 12px; text-shadow: 0 1px 4px rgba(0,0,0,0.5);">1 Large King Bed · Sunset Balcony</p>
+            <a href="rooms.html#large-rooms" class="btn btn-outline-gold" style="padding: 7px 14px; font-size: 0.75rem; align-self: flex-start; background: rgba(31,61,46,0.85); backdrop-filter: blur(4px);">View Details →</a>
+          </div>
+        </div>
+
+        <!-- Room 4 -->
+        <div class="room-card-slide-overlay">
+          <div class="room-top-pill-badge" style="color: var(--color-gold);">Large Size Bed Room</div>
+          <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80" alt="Room 4 Oceanfront Master Suite" class="room-card-full-img">
+          <div class="room-card-text-overlay">
+            <h3 style="font-size: 1.35rem; color: #FFFFFF !important; font-family: var(--font-serif); margin-bottom: 2px; text-shadow: 0 2px 8px rgba(0,0,0,0.5);">Oceanfront Master Suite</h3>
+            <p style="font-size: 0.84rem; color: rgba(255, 250, 245, 0.95) !important; margin-bottom: 12px; text-shadow: 0 1px 4px rgba(0,0,0,0.5);">1 Large King Bed · Ocean Balcony</p>
+            <a href="rooms.html#large-rooms" class="btn btn-outline-gold" style="padding: 7px 14px; font-size: 0.75rem; align-self: flex-start; background: rgba(31,61,46,0.85); backdrop-filter: blur(4px);">View Details →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="slider-hint-text" style="color: var(--color-primary-25); margin-top: 10px;">
+        <span>↔ Swipe / Scroll Horizontally to Explore All 4 Bedrooms</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 6: PARALLAX SCROLLING REVIEWS BANNER WITH HORIZONTAL SLIDING CAROUSEL
+       ========================================================================== -->
+  <section class="section-reviews-parallax" data-section="6">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-number-badge">Section 6</div>
+        <span class="subtitle" style="color: var(--color-gold) !important;">Verified Guest Reviews</span>
+        <h2 class="text-white" style="color: #FFFFFF !important;">Loved By Travellers Worldwide</h2>
+        <p style="color: rgba(255, 250, 245, 0.95) !important;">Real experiences from guests who stayed at Elephant Beach Villa.</p>
+      </div>
+
+      <!-- Horizontal Sliding Track for Review Cards -->
+      <div class="reviews-slider-container">
+        <!-- Review 1 -->
+        <div class="review-card-slide">
+          <div class="review-stars">★ ★ ★ ★ ★</div>
+          <p class="review-quote" style="color: #000000 !important;">
+            "We stayed at this house and loved it. The pool was absolutely wonderful… we spent hours there and it was easily the highlight. The location is peaceful and relaxing, away from the usual hustle!"
+          </p>
+          <div class="review-author">
+            <div class="author-name" style="color: #000000 !important;">Barbara</div>
+            <div class="review-date" style="color: #4A5568 !important;">Verified Stay · 5 Stars</div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="review-card-slide">
+          <div class="review-stars">★ ★ ★ ★ ★</div>
+          <p class="review-quote" style="color: #000000 !important;">
+            "Everything was perfect! The pool was our absolute highlight! Host Neesha was very proactive and always easily accessible. It is quiet and a bit remote—exactly what we were looking for!"
+          </p>
+          <div class="review-author">
+            <div class="author-name" style="color: #000000 !important;">Anna</div>
+            <div class="review-date" style="color: #4A5568 !important;">Verified Stay · 5 Stars</div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="review-card-slide">
+          <div class="review-stars">★ ★ ★ ★ ★</div>
+          <p class="review-quote" style="color: #000000 !important;">
+            "The villa is situated on a beautiful natural beach with even wild elephants in the surroundings! The caretaker Saman was very friendly and helpful and took great care of the villa."
+          </p>
+          <div class="review-author">
+            <div class="author-name" style="color: #000000 !important;">Ruben</div>
+            <div class="review-date" style="color: #4A5568 !important;">Verified Stay · 5 Stars</div>
+          </div>
+        </div>
+
+        <!-- Review 4 -->
+        <div class="review-card-slide">
+          <div class="review-stars">★ ★ ★ ★ ★</div>
+          <p class="review-quote" style="color: #000000 !important;">
+            "An unbelievable experience! We rented all 4 rooms for our surf trip with friends. Being 15 minutes from Lighthouse Point and having a private pool to return to every afternoon was incredible."
+          </p>
+          <div class="review-author">
+            <div class="author-name" style="color: #000000 !important;">David & Sarah</div>
+            <div class="review-date" style="color: #4A5568 !important;">Verified Stay · 5 Stars</div>
+          </div>
+        </div>
+
+        <!-- Review 5 -->
+        <div class="review-card-slide">
+          <div class="review-stars">★ ★ ★ ★ ★</div>
+          <p class="review-quote" style="color: #000000 !important;">
+            "Private paradise in Komari. Waking up to ocean breezes and seeing wild elephants near the lagoon was unforgettable. The upstairs balconies have breathtaking views."
+          </p>
+          <div class="review-author">
+            <div class="author-name" style="color: #000000 !important;">Elena & Family</div>
+            <div class="review-date" style="color: #4A5568 !important;">Verified Stay · 5 Stars</div>
+          </div>
+        </div>
+
+        <!-- Review 6 -->
+        <div class="review-card-slide">
+          <div class="review-stars">★ ★ ★ ★ ★</div>
+          <p class="review-quote" style="color: #000000 !important;">
+            "Spacious, clean, and peaceful. Host Neesha organized our transport from Colombo seamlessly. Caretaker Saman made sure everything was top notch."
+          </p>
+          <div class="review-author">
+            <div class="author-name" style="color: #000000 !important;">Markus</div>
+            <div class="review-date" style="color: #4A5568 !important;">Verified Stay · 5 Stars</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-hint-text">
+        <span>↔ Swipe / Scroll Horizontally to Read More Reviews</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 7: 75% WARM IVORY CANVAS SECTION (#FFFAF5)
+       ========================================================================== -->
+  <section class="section section-ivory" data-section="7" style="text-align: center;">
+    <div class="container">
+      <div class="section-number-badge">Section 7</div>
+      <span class="subtitle">Ready For Your Getaway?</span>
+      <h2 style="color: var(--color-primary-25) !important;">Experience The Wild Coast At Its Best</h2>
+      <p style="color: var(--color-text-muted) !important; max-width: 700px; margin: 0 auto 32px;">Reserve individual rooms or the entire 4-bedroom villa with private plunge pool and uncrowded beach access.</p>
+      <a href="availability.html" class="btn btn-primary">Check Availability Calendars</a>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 8: FOOTER SECTION (Deep Emerald #2E5A44)
+       ========================================================================== -->
+  <footer class="footer" data-section="8">
+    <div class="container">
+      <div class="section-number-badge">Section 8</div>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="logo-text" style="margin-bottom: 16px;">Elephant Beach <span>Villa</span></div>
+          <p style="color: rgba(255,250,245,0.75);">A private 4-bedroom holiday home on the wild coast of Komari, Sri Lanka. Featuring ocean balconies, private pool, and uncrowded beaches.</p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About The Space</a></li>
+            <li><a href="rooms.html">4 Bedrooms</a></li>
+            <li><a href="availability.html">Live Availability</a></li>
+            <li><a href="contact.html">Contact Host</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Nearby Attractions</h5>
+          <ul class="footer-links">
+            <li><a href="about.html#attractions">Arugam Bay (20 mins)</a></li>
+            <li><a href="about.html#attractions">Lighthouse Surf Point</a></li>
+            <li><a href="about.html#attractions">Whiskey Surf Point</a></li>
+            <li><a href="about.html#attractions">Kumana National Park</a></li>
+            <li><a href="about.html#attractions">Gal Oya Boat Safari</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Contact Villa</h5>
+          <p style="color: rgba(255,250,245,0.75);">Komari, Selvapuram Village Road,<br>Eastern Province, Sri Lanka</p>
+          <p style="color: rgba(255,250,245,0.75);">Host: Neesha & Caretaker Saman</p>
+          <a href="contact.html" class="btn btn-outline-gold" style="padding: 8px 18px; font-size: 0.8rem;">Send Inquiry</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© Elephant Beach Villa Komari. All Rights Reserved.</div>
+        <div>Crystal Clear Room Cards & Floating Badges</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

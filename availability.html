@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resort Availability & Booking - Elephant Beach Villa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header with Centered Logo & Split Side Menus -->
+  <header class="header">
+    <div class="container">
+      <div class="header-nav-grid">
+        <!-- Left Side Menu -->
+        <ul class="nav-side nav-left">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About The Space</a></li>
+          <li class="dropdown">
+            <a href="rooms.html" class="nav-link">Bedrooms ▾</a>
+            <div class="dropdown-menu">
+              <a href="rooms.html" class="dropdown-item">All 4 Bedrooms</a>
+              <a href="rooms.html#large-rooms" class="dropdown-item">2 Large-Bed Suites (1 King Bed x 2)</a>
+              <a href="rooms.html#twin-rooms" class="dropdown-item">2 Twin-Bed Rooms (2 Beds x 2)</a>
+            </div>
+          </li>
+        </ul>
+
+        <!-- Centered Logo -->
+        <a href="index.html" class="logo-centered">
+          <div class="logo-icon">EB</div>
+          <div class="logo-text">Elephant Beach <span>Villa</span></div>
+        </a>
+
+        <!-- Right Side Menu -->
+        <ul class="nav-side nav-right">
+          <li><a href="availability.html" class="nav-link active">Resort Availability</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="availability.html" class="btn btn-outline-gold" style="padding: 8px 18px; font-size: 0.75rem;">Book Now</a></li>
+        </ul>
+
+        <button class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       SECTION 1: HERO BANNER SECTION (PARALLAX SCROLLING EFFECT)
+       ========================================================================== -->
+  <section class="hero hero-availability" style="padding: 90px 0 110px;" data-section="1">
+    <div class="hero-placeholder-bg"></div>
+    <div class="container hero-content">
+      <div class="section-number-badge">Section 1</div>
+      <span class="subtitle" style="color: var(--color-gold);">Live Availability</span>
+      <h1 class="hero-title">Resort Availability & Calendars</h1>
+      <p class="hero-description" style="margin-bottom: 0;">Select room(s) below to view live availability calendars and request your booking.</p>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 2: STEP 1 - ROOM SELECTION CARDS & MULTI-CALENDARS
+       ========================================================================== -->
+  <section class="section" data-section="2">
+    <div class="container">
+
+      <!-- Validation Error Banner -->
+      <div id="validationAlert" class="validation-alert"></div>
+
+      <!-- Top 4 Room Selection Cards -->
+      <div class="room-selector-wrapper">
+        <div class="section-header text-left" style="margin-bottom: 20px;">
+          <div class="section-number-badge">Section 2</div>
+          <span class="subtitle">Step 1: Select Rooms</span>
+          <h2>Room Calendars</h2>
+        </div>
+
+        <div class="room-selector-grid">
+          <!-- Room 1 -->
+          <div class="room-select-card active" data-room="room1">
+            <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=600&q=80" alt="Room 1 Ocean View Twin" class="room-select-media-img">
+            <div class="room-select-info">
+              <h4>Room 1: Ocean View Twin</h4>
+              <p>2 Single Beds · Max 2 Guests</p>
+            </div>
+          </div>
+
+          <!-- Room 2 -->
+          <div class="room-select-card active" data-room="room2">
+            <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=600&q=80" alt="Room 2 Estuary View Twin" class="room-select-media-img">
+            <div class="room-select-info">
+              <h4>Room 2: Estuary View Twin</h4>
+              <p>2 Single Beds · Max 2 Guests</p>
+            </div>
+          </div>
+
+          <!-- Room 3 -->
+          <div class="room-select-card active" data-room="room3">
+            <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=600&q=80" alt="Room 3 Sunset Master Suite" class="room-select-media-img">
+            <div class="room-select-info">
+              <h4>Room 3: Sunset Suite</h4>
+              <p>1 Large King Bed · Max 2 Guests</p>
+            </div>
+          </div>
+
+          <!-- Room 4 -->
+          <div class="room-select-card active" data-room="room4">
+            <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=600&q=80" alt="Room 4 Oceanfront Master Suite" class="room-select-media-img">
+            <div class="room-select-info">
+              <h4>Room 4: Oceanfront Suite</h4>
+              <p>1 Large King Bed · Max 2 Guests</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="all-villa-btn-bar">
+          <div><strong>Viewing:</strong> Active calendars shown below.</div>
+          <button id="selectAllVillaBtn" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.8rem;">Select Entire Villa (All 4 Rooms)</button>
+        </div>
+      </div>
+
+      <!-- Multi-Calendar Container (Rendered via JS) -->
+      <div id="multiCalendarContainer" class="multi-calendar-container">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+
+      <!-- Admin Access Bar -->
+      <div class="admin-panel-bar">
+        <div>
+          <strong>Admin Portal:</strong>
+          <span id="adminStatusBadge" style="display: none; background: var(--color-gold); color: black; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-left: 8px;">ADMIN MODE ACTIVE</span>
+        </div>
+        <button id="adminToggleBtn" class="btn btn-outline-gold" style="padding: 6px 14px; font-size: 0.8rem;">Admin Login</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 3: STEP 2 - ADVANCED MODERN RESERVATION SUITE FORM
+       ========================================================================== -->
+  <section class="section section-ivory" data-section="3">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-number-badge">Section 3</div>
+        <span class="subtitle">Step 2: Reserve Your Stay</span>
+        <h2>Luxury Reservation Request</h2>
+        <p>Confirm your selected dates and room choices with instant host verification.</p>
+      </div>
+
+      <div class="grid-2" style="align-items: start; gap: 36px;">
+        
+        <!-- Left: Modern Form Suite Card -->
+        <div style="background: #FFFFFF; padding: 36px; border-radius: 16px; box-shadow: var(--box-shadow); border: 1px solid rgba(46, 90, 68, 0.15);">
+          
+          <form class="booking-form" id="mainBookingForm">
+            <!-- Active Selected Rooms Modern Bar -->
+            <div class="input-group-modern" style="margin-bottom: 24px;">
+              <label class="input-label-modern">
+                <span>🏨</span> Active Room Selection
+              </label>
+              <input type="text" id="selectedRoomsInput" class="input-modern" style="font-weight: 700; color: var(--color-primary-25); background: #F1F5F9; border-color: var(--color-primary-25);" value="Entire Villa (All 4 Bedrooms)" readonly>
+            </div>
+
+            <div class="grid-2" style="gap: 16px;">
+              <div class="input-group-modern">
+                <label class="input-label-modern" for="guestName">👤 Full Name</label>
+                <input type="text" id="guestName" class="input-modern" placeholder="e.g. Alexander Wright" required>
+              </div>
+
+              <div class="input-group-modern">
+                <label class="input-label-modern" for="guestEmail">✉️ Email Address</label>
+                <input type="email" id="guestEmail" class="input-modern" placeholder="alex@example.com" required>
+              </div>
+            </div>
+
+            <div class="grid-2" style="gap: 16px;">
+              <div class="input-group-modern">
+                <label class="input-label-modern" for="checkInInput">📅 Check-In Date</label>
+                <input type="date" id="checkInInput" class="input-modern" required>
+              </div>
+
+              <div class="input-group-modern">
+                <label class="input-label-modern" for="checkOutInput">📅 Check-Out Date</label>
+                <input type="date" id="checkOutInput" class="input-modern" required>
+              </div>
+            </div>
+
+            <div class="input-group-modern">
+              <label class="input-label-modern">👥 Total Guests Allocation</label>
+              <select class="input-modern" required>
+                <option value="2">1–2 Guests (Single Room)</option>
+                <option value="4">3–4 Guests (2 Rooms)</option>
+                <option value="6">5–6 Guests (3 Rooms)</option>
+                <option value="8" selected>7–8 Guests (Entire 4-Bedroom Villa)</option>
+              </select>
+            </div>
+
+            <div class="input-group-modern" style="margin-bottom: 28px;">
+              <label class="input-label-modern">📝 Special Airport Transfer / Dietary Requests</label>
+              <textarea class="input-modern" rows="3" placeholder="Optional notes for Host Neesha and Caretaker Saman..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 16px; border-radius: 30px; font-size: 0.9rem; font-weight: bold; letter-spacing: 2px;">
+              Confirm Reservation Request →
+            </button>
+          </form>
+        </div>
+
+        <!-- Right: Live Booking Summary Sidebar Widget -->
+        <div>
+          <div class="booking-summary-widget">
+            <h3 class="summary-header">Reservation Summary</h3>
+            
+            <div class="summary-item">
+              <span class="summary-label">Villa Estate</span>
+              <span class="summary-value">Elephant Beach Villa</span>
+            </div>
+
+            <div class="summary-item">
+              <span class="summary-label">Selected Option</span>
+              <span class="summary-value" id="summarySelectedRooms">Entire Villa (4 Rooms)</span>
+            </div>
+
+            <div class="summary-item">
+              <span class="summary-label">Minimum Stay Policy</span>
+              <span class="summary-value">2 Nights Minimum</span>
+            </div>
+
+            <div class="summary-item">
+              <span class="summary-label">Max Guest Capacity</span>
+              <span class="summary-value">Max 8 Guests</span>
+            </div>
+
+            <div class="summary-item">
+              <span class="summary-label">Plunge Pool Access</span>
+              <span class="summary-value" style="color: #4ADE80;">✓ Included</span>
+            </div>
+
+            <div class="summary-item">
+              <span class="summary-label">Caretaker Assistance</span>
+              <span class="summary-value" style="color: #4ADE80;">✓ Caretaker Saman on Site</span>
+            </div>
+
+            <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid rgba(255, 250, 245, 0.2); font-size: 0.8rem; color: rgba(255, 250, 245, 0.85); line-height: 1.6;">
+              🔒 <strong>Direct Booking Guarantee:</strong> No payment required today. Host Neesha will verify date availability and confirm your reservation via email within 2 hours.
+            </div>
+          </div>
+
+          <!-- Host Direct Badge -->
+          <div class="host-profile-card">
+            <div class="host-avatar-circle">N</div>
+            <div>
+              <strong style="color: var(--color-primary-25); font-size: 1rem;">Host Neesha</strong>
+              <p style="margin: 0; font-size: 0.82rem; color: var(--color-text-muted);">Superhost · Direct Villa Management</p>
+              <div style="font-size: 0.78rem; color: var(--color-gold); font-weight: 600; margin-top: 2px;">⚡ Responds within 1 hour</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 4: FOOTER SECTION
+       ========================================================================== -->
+  <footer class="footer" data-section="4">
+    <div class="container">
+      <div class="section-number-badge">Section 4</div>
+      <div class="footer-bottom">
+        <div>© Elephant Beach Villa Komari. All Rights Reserved.</div>
+        <div><a href="index.html" class="text-gold">Return to Home</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

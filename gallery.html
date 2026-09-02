@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Villa Photo & Video Gallery - Elephant Beach Villa Komari</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header with Centered Logo & Split Side Menus -->
+  <header class="header">
+    <div class="container">
+      <div class="header-nav-grid">
+        <!-- Left Side Menu -->
+        <ul class="nav-side nav-left">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About The Space</a></li>
+          <li class="dropdown">
+            <a href="rooms.html" class="nav-link">Bedrooms ▾</a>
+            <div class="dropdown-menu">
+              <a href="rooms.html" class="dropdown-item">All 4 Bedrooms</a>
+              <a href="rooms.html#twin-rooms" class="dropdown-item">2 Twin-Bed Rooms (2 Beds x 2)</a>
+              <a href="rooms.html#large-rooms" class="dropdown-item">2 Large-Bed Suites (1 King Bed x 2)</a>
+            </div>
+          </li>
+        </ul>
+
+        <!-- Centered Logo -->
+        <a href="index.html" class="logo-centered">
+          <div class="logo-icon">EB</div>
+          <div class="logo-text">Elephant Beach <span>Villa</span></div>
+        </a>
+
+        <!-- Right Side Menu -->
+        <ul class="nav-side nav-right">
+          <li><a href="availability.html" class="nav-link">Resort Availability</a></li>
+          <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="availability.html" class="btn btn-outline-gold" style="padding: 8px 18px; font-size: 0.75rem;">Book Now</a></li>
+        </ul>
+
+        <button class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       SECTION 1: HERO BANNER SECTION (PARALLAX SCROLLING EFFECT)
+       ========================================================================== -->
+  <section class="hero hero-gallery" style="padding: 90px 0 110px;" data-section="1">
+    <div class="hero-placeholder-bg"></div>
+    <div class="container hero-content">
+      <div class="section-number-badge">Section 1</div>
+      <span class="subtitle" style="color: var(--color-gold);">Visual Tour</span>
+      <h1 class="hero-title">Villa & Coast Gallery</h1>
+      <p class="hero-description">Explore high-resolution photography of our 4 bedrooms, private plunge pool, deserted Komari beach, and surrounding Sri Lankan wildlife.</p>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 2: PHOTO GALLERY GRID (6 Category Cards)
+       ========================================================================== -->
+  <section class="section section-ivory" data-section="2">
+    <div class="container">
+      <div class="section-number-badge">Section 2</div>
+      <div class="grid-3" style="margin-top: 20px;">
+        <!-- Card 1 -->
+        <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(46,90,68,0.15); box-shadow: var(--box-shadow);">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Deserted Komari Beach" style="width: 100%; height: 260px; object-fit: cover;">
+          <div style="padding: 16px; background: white;">
+            <h4 style="font-size: 1.1rem; margin-bottom: 4px;">Deserted Komari Beach</h4>
+            <p style="font-size: 0.8rem; margin: 0;">Beachfront & Sand Dunes</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(46,90,68,0.15); box-shadow: var(--box-shadow);">
+          <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=600&q=80" alt="Private Plunge Pool" style="width: 100%; height: 260px; object-fit: cover;">
+          <div style="padding: 16px; background: white;">
+            <h4 style="font-size: 1.1rem; margin-bottom: 4px;">Private Tropical Plunge Pool</h4>
+            <p style="font-size: 0.8rem; margin: 0;">Pool & Lush Gardens</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(46,90,68,0.15); box-shadow: var(--box-shadow);">
+          <img src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=600&q=80" alt="Visiting Wild Elephants" style="width: 100%; height: 260px; object-fit: cover;">
+          <div style="padding: 16px; background: white;">
+            <h4 style="font-size: 1.1rem; margin-bottom: 4px;">Visiting Wild Elephants</h4>
+            <p style="font-size: 0.8rem; margin: 0;">Estuary & Lagoon Nature</p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(46,90,68,0.15); box-shadow: var(--box-shadow);">
+          <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=600&q=80" alt="Twin Bedroom" style="width: 100%; height: 260px; object-fit: cover;">
+          <div style="padding: 16px; background: white;">
+            <h4 style="font-size: 1.1rem; margin-bottom: 4px;">Room 1: Ocean View Twin</h4>
+            <p style="font-size: 0.8rem; margin: 0;">2 Single Beds · AC & Balcony</p>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(46,90,68,0.15); box-shadow: var(--box-shadow);">
+          <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=600&q=80" alt="Master Suite" style="width: 100%; height: 260px; object-fit: cover;">
+          <div style="padding: 16px; background: white;">
+            <h4 style="font-size: 1.1rem; margin-bottom: 4px;">Room 3: Sunset Master Suite</h4>
+            <p style="font-size: 0.8rem; margin: 0;">1 Large King Bed · AC & Balcony</p>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(46,90,68,0.15); box-shadow: var(--box-shadow);">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Verandah Dining" style="width: 100%; height: 260px; object-fit: cover;">
+          <div style="padding: 16px; background: white;">
+            <h4 style="font-size: 1.1rem; margin-bottom: 4px;">Downstairs Verandah Dining</h4>
+            <p style="font-size: 0.8rem; margin: 0;">Outdoor Al Fresco Dining</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 3: STANDARD BANNER SECTION
+       ========================================================================== -->
+  <section class="section-banner-bg" data-section="3">
+    <div class="container">
+      <div class="section-number-badge">Section 3</div>
+      <span class="subtitle" style="color: var(--color-gold) !important;">Experience Sri Lanka</span>
+      <h2>Plan Your Wild Coast Getaway</h2>
+      <p>Reserve your dates on our 4 live room calendars today.</p>
+      <a href="availability.html" class="btn btn-primary">Check Availability</a>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 4: FOOTER SECTION
+       ========================================================================== -->
+  <footer class="footer" data-section="4">
+    <div class="container">
+      <div class="section-number-badge">Section 4</div>
+      <div class="footer-bottom">
+        <div>© Elephant Beach Villa Komari. All Rights Reserved.</div>
+        <div><a href="index.html" class="text-gold">Return to Home</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
