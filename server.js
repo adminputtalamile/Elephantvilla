@@ -286,7 +286,7 @@ app.post('/api/submit-booking', async (req, res) => {
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(payload),
       redirect: 'follow',
-      signal: AbortSignal.timeout(15000)
+      signal: AbortSignal.timeout(35000)
     });
 
     if (!response.ok) {
@@ -335,10 +335,14 @@ app.post('/api/contact-inquiry', async (req, res) => {
     const payload = {
       action: 'contactInquiry',
       name: String(name || 'Guest').trim(),
+      guestName: String(name || 'Guest').trim(),
       email: String(email || '').trim(),
+      guestEmail: String(email || '').trim(),
       phone: String(phone || '').trim(),
+      guestPhone: String(phone || '').trim(),
       subject: String(subject || 'General Inquiry').trim(),
       message: String(message || '').trim(),
+      specialRequests: String(message || '').trim(),
       timestamp: new Date().toISOString()
     };
 
@@ -347,7 +351,7 @@ app.post('/api/contact-inquiry', async (req, res) => {
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(payload),
       redirect: 'follow',
-      signal: AbortSignal.timeout(15000)
+      signal: AbortSignal.timeout(35000)
     });
 
     if (!response.ok) {
