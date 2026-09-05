@@ -1,0 +1,6 @@
+{
+  "name": "Elephant Beach Villa",
+  "description": "A secluded luxury holiday villa situated on a pristine beach in Komari, Sri Lanka with 4 bedrooms, plunge pool, and ocean views.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

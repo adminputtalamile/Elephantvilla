@@ -1,0 +1,24 @@
+{
+  "name": "elephant-beach-villa",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Elephant Beach Villa Komari - Luxury Resort & Accommodation Web Application",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "echo 'Static Site'",
+    "lint": "node -c server.js script.js"
+  },
+  "keywords": [
+    "resort",
+    "villa",
+    "sri-lanka",
+    "komari"
+  ],
+  "author": "Elephant Beach Villa",
+  "license": "ISC",
+  "dependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "express": "^5.2.1"
+  }
+}
