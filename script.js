@@ -1912,9 +1912,10 @@ function initContactFormHandler() {
     };
 
     try {
-      let inquiryData = null;
+      let delivered = false;
+      let responseData = null;
 
-      // 1. Try dedicated contact inquiry server proxy
+      // 1. Try dedicated contact inquiry server proxy (for fullstack/Node deployments)
       try {
         const proxyRes = await fetch("/api/contact-inquiry", {
           method: "POST",
@@ -1922,34 +1923,113 @@ function initContactFormHandler() {
           body: JSON.stringify(payload)
         });
         if (proxyRes.ok) {
-          inquiryData = await proxyRes.json();
-        } else {
-          // Fallback to submit-booking endpoint with contactInquiry action
+          responseData = await proxyRes.json();
+          if (responseData && responseData.status === "success") {
+            delivered = true;
+          }
+        }
+      } catch (proxyErr) {
+        console.warn("Local proxy /api/contact-inquiry unavailable:", proxyErr.message);
+      }
+
+      // 2. Fallback / Direct: If proxy was unavailable or failed (e.g. static hosting, Netlify, GitHub Pages, Vercel, cPanel)
+      if (!delivered) {
+        const webAppUrl = (CONFIG.GOOGLE_SCRIPT_WEB_APP_URL && !CONFIG.GOOGLE_SCRIPT_WEB_APP_URL.includes("elephantbeachvilla_webapp"))
+          ? CONFIG.GOOGLE_SCRIPT_WEB_APP_URL
+          : null;
+
+        if (webAppUrl) {
+          try {
+            const directRes = await fetch(webAppUrl, {
+              method: "POST",
+              mode: "cors",
+              headers: { "Content-Type": "text/plain;charset=utf-8" },
+              body: JSON.stringify(payload)
+            });
+            if (directRes.ok) {
+              responseData = await directRes.json();
+              if (responseData && responseData.status === "success") {
+                delivered = true;
+              }
+            }
+          } catch (directErr) {
+            console.warn("Direct CORS fetch encountered issue; trying no-cors delivery guarantee:", directErr.message);
+            try {
+              // mode: "no-cors" ensures Google Apps Script still receives and executes doPost even if browser security blocks redirect inspection
+              await fetch(webAppUrl, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "text/plain;charset=utf-8" },
+                body: JSON.stringify(payload)
+              });
+              delivered = true;
+            } catch (noCorsErr) {
+              console.error("All direct delivery attempts failed:", noCorsErr);
+            }
+          }
+        }
+      }
+
+      // 3. Last-resort fallback to submit-booking endpoint with contactInquiry action
+      if (!delivered) {
+        try {
           const subRes = await fetch("/api/submit-booking", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload)
           });
-          if (subRes.ok) inquiryData = await subRes.json();
-        }
-      } catch (proxyErr) {
-        if (CONFIG.GOOGLE_SCRIPT_WEB_APP_URL && !CONFIG.GOOGLE_SCRIPT_WEB_APP_URL.includes("elephantbeachvilla_webapp")) {
-          const directRes = await fetch(CONFIG.GOOGLE_SCRIPT_WEB_APP_URL, {
-            method: "POST",
-            mode: "cors",
-            headers: { "Content-Type": "text/plain;charset=utf-8" },
-            body: JSON.stringify(payload)
-          });
-          inquiryData = await directRes.json();
+          if (subRes.ok) {
+            responseData = await subRes.json();
+            if (responseData && responseData.status === "success") {
+              delivered = true;
+            }
+          }
+        } catch (subErr) {
+          console.warn("Fallback booking proxy also unavailable:", subErr.message);
         }
       }
 
-      handleContactSuccess(contactForm, name, email, subject, submitBtn, originalBtnHTML);
+      if (delivered) {
+        handleContactSuccess(contactForm, name, email, subject, submitBtn, originalBtnHTML);
+      } else {
+        handleContactError(contactForm, "Unable to dispatch your message to the server at this moment.", submitBtn, originalBtnHTML);
+      }
     } catch (err) {
-      console.info("Contact form note:", err);
-      handleContactSuccess(contactForm, name, email, subject, submitBtn, originalBtnHTML);
+      console.error("Contact form error:", err);
+      handleContactError(contactForm, err.message, submitBtn, originalBtnHTML);
     }
   });
+}
+
+function handleContactError(form, errorMsg, submitBtn, originalBtnHTML) {
+  const alertBanner = document.getElementById("contactAlertBanner");
+  if (alertBanner) {
+    alertBanner.className = "booking-alert-banner error";
+    alertBanner.style.display = "block";
+    alertBanner.innerHTML = `
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <strong style="color: #991b1b; font-size: 0.95rem;">⚠ Message could not be sent</strong>
+        <span style="font-size: 0.85rem; color: #7f1d1d;">${errorMsg || "Please reach out to Host Neesha directly via WhatsApp (+94 77 218 6718) or email elephantbeachvilla@gmail.com."}</span>
+        <div style="margin-top: 6px; display: flex; flex-wrap: wrap; gap: 8px;">
+          <a href="https://wa.me/94772186718" target="_blank" style="display: inline-block; background: #25D366; color: white; padding: 7px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: bold; text-decoration: none;">
+            💬 WhatsApp Host (+94 77 218 6718)
+          </a>
+          <a href="mailto:elephantbeachvilla@gmail.com" style="display: inline-block; background: #183124; color: white; padding: 7px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: bold; text-decoration: none;">
+            ✉️ Email Host Directly
+          </a>
+        </div>
+      </div>
+    `;
+    alertBanner.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  showToast(errorMsg || "Message delivery failed. Please contact the villa directly.", "error", 5000);
+
+  if (submitBtn) {
+    submitBtn.disabled = false;
+    submitBtn.classList.remove("loading");
+    submitBtn.innerHTML = originalBtnHTML;
+  }
 }
 
 function handleContactSuccess(form, name, email, subject, submitBtn, originalBtnHTML) {
