@@ -1,6 +1,0 @@
-{
-  "framework": null,
-  "buildCommand": "echo 'Static Site'",
-  "outputDirectory": ".",
-  "cleanUrls": true
-}
